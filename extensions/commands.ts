@@ -143,14 +143,11 @@ export const registerCommands = (pi: ExtensionAPI): void => {
     handler: async (_args, ctx) => {
       const existing = await resolveConfig();
 
-      const defaultKey = existing.apiKey ? MASKED_KEY : "hch-...";
-      const apiKey = await ctx.ui.input("Honcho API key:", defaultKey);
-      if (!apiKey || apiKey === MASKED_KEY) {
-        if (!existing.apiKey) {
-          ctx.ui.notify("API key is required.", "error");
-          return;
-        }
-      }
+      const defaultKey = existing.apiKey ? MASKED_KEY : "";
+      const apiKey = await ctx.ui.input(
+        "Honcho API key (leave blank if authentication is disabled):",
+        defaultKey,
+      );
 
       const peerName = await ctx.ui.input("Your peer name:", existing.userPeerId);
       const endpoint = await ctx.ui.input(
