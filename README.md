@@ -27,7 +27,13 @@ pi -e npm:@agney/pi-honcho-memory
 
 ## Setup
 
-Run `/honcho-setup` inside pi to configure interactively. For Honcho Cloud, get an API key from [honcho.dev](https://honcho.dev). For a self-hosted server without authentication, leave the API key blank and provide the server endpoint.
+Run `/honcho-setup` inside pi to configure interactively. You can pass a self-hosted server's base URL directly:
+
+```text
+/honcho-setup http://localhost:8000
+```
+
+For Honcho Cloud, get an API key from [honcho.dev](https://honcho.dev). For a self-hosted server without authentication, leave the API key blank.
 
 Or set environment variables:
 
